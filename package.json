@@ -6,6 +6,6 @@
     "jsonwebtoken": "^9.0.2"
   },
   "scripts": {
-    "start": "node your-script.js"
+    "start": "node index.js"
   }
 }
