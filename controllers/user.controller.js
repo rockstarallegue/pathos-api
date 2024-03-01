@@ -10,6 +10,8 @@ var msg = require('../helpers/messages')
 const bcrypt = require('bcryptjs');
 const saltRounds = 10;
 
+const pathos = require("pathos-proto-infra"); // Importamos el paquete
+var fs = require("fs");
 
 /**
  * [Function that returns an user from system]
