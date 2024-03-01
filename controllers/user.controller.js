@@ -7,7 +7,7 @@ const config = require('../config/jwt');
 const jwt = require('jsonwebtoken');
 var msg = require('../helpers/messages')
 
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const saltRounds = 10;
 
 
