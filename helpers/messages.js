@@ -17,4 +17,16 @@ module.exports = {
         "Component": "Token/Authentication",
         "Authenticated": false
     },
+    inc_node_missing_content: {
+        "Component": "INCEPTION CONTROLLER :: NODE",
+        "Message": "content is missing"
+    },
+    inc_node_succ: {
+        "Component": "INCEPTION CONTROLLER :: NODE",
+        "Message": "node incepted successfully"
+    },
+    seed_entity_type_succ: {
+        "Component": "SEEDER CONTROLLER :: ENTITY TYPE",
+        "Message": "entity type seeded successfully"
+    },
 }

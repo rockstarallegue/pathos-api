@@ -7,10 +7,10 @@ const config = require('../config/jwt');
 const jwt = require('jsonwebtoken');
 var msg = require('../helpers/messages')
 
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const saltRounds = 10;
 
-const pathos = require("pathos-proto-infra"); // Importamos el paquete
+const pathchain = require("pathchain"); // Importamos el paquete
 var fs = require("fs");
 
 const checker = require("../checker");
@@ -23,23 +23,23 @@ const checker = require("../checker");
  */
 module.exports.GET_PIONEER_SECRET = (request, response) => {
     // Creating the pioneer if it doesn't exists (remains the same)
-    const pioneer = pathos.makePioneer();
+    const pioneer = pathchain.makePioneer();
     var secret_obj = {}
     // console.log("PIONEER BUFFER: ", pioneer)
 
     checker.checkDir("files/"+pioneer+"/secrets/")
     // No pioneer secret
     if(checker.checkEmptyDir("files/"+pioneer+"/secrets/")){
-        const secret = pathos.makeSecret();
+        const secret = pathchain.makeSecret();
         console.log("PIONEER SECRET BUFFER: ", secret)
 
-        secret_obj = pathos.getSecretObj(secret);
+        secret_obj = pathchain.getSecretObj(secret);
     }
     else{
         secret_obj = checker.checkFiles('files/'+pioneer+'/secrets/')[0];
     }
 
-    const pioneer_obj = pathos.getPioneerObj(pioneer);
+    const pioneer_obj = pathchain.getPioneerObj(pioneer);
 
     response.json({
         message: "GET PIONEER SECRET",

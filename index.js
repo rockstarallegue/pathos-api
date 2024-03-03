@@ -3,7 +3,8 @@ const middleware = require('./middleware/jwt-middleware');
 
 const api = require('./routes/api');
 const login = require('./routes/login');
-const secrets= require('./routes/secrets');
+const secrets = require('./routes/secrets');
+const seeders = require('./routes/seeder');
 const index = require('./routes/index');
 
 const cors = require('cors');
@@ -28,6 +29,7 @@ app.use(express.static(__dirname + '/frontend'));
 app.use('/api', middleware, api); // API middleware protected endpoints
 app.use('/login', login); // Login page
 app.use('/secrets', secrets); // Public secrets behavior
+app.use('/seed', seeders); // Public secrets behavior
 app.use('', index); // Landing page
 
 app.listen(port, () => {
